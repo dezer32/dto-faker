@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dezer32\Libraries\Dto\Faker\Reflections;
 
-use Dezer32\Libraries\Dto\Faker\Attributes\CustFieldFaker;
+use Dezer32\Libraries\Dto\Faker\Attributes\CastFieldFaker;
 use Dezer32\Libraries\Dto\Faker\Attributes\FieldFaker;
 use Dezer32\Libraries\Dto\Faker\Factories\FakeGeneratorFactory;
 use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorInterface;
@@ -32,7 +32,7 @@ class Field
 
     private function resolveGenerator(): FakeGeneratorInterface|null
     {
-        $generator = $this->field->getAttributeInstance(CustFieldFaker::class);
+        $generator = $this->field->getAttributeInstance(CastFieldFaker::class);
 
         if ($generator === null) {
             $generator = $this->field->getAttributeInstance(FieldFaker::class);

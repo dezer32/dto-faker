@@ -10,7 +10,7 @@ use Dezer32\Libraries\Dto\Faker\Exceptions\InvalidFakeCasterClassException;
 use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorInterface;
 
 #[Attribute(Attribute::TARGET_PROPERTY | Attribute::TARGET_PARAMETER)]
-class CustFieldFaker implements FakeGeneratorInterface
+class CastFieldFaker implements FakeGeneratorInterface
 {
     private array $args;
 
