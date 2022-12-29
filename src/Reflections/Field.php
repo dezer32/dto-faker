@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace Dezer32\Libraries\Dto\Faker\Reflections;
 
 use Dezer32\Libraries\Dto\Faker\Attributes\FieldFaker;
-use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorFactory;
+use Dezer32\Libraries\Dto\Faker\Factories\FakeGeneratorFactory;
 use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorInterface;
 use Dezer32\Libraries\Dto\Reflections\Field\Property;
 

@@ -2,7 +2,11 @@
 
 declare(strict_types=1);
 
-namespace Dezer32\Libraries\Dto\Faker\Generators;
+namespace Dezer32\Libraries\Dto\Faker\Factories;
+
+use Dezer32\Libraries\Dto\Faker\Generators\DateTransferObjectFakeGenerator;
+use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorInterface;
+use Dezer32\Libraries\Dto\Faker\Generators\TypehintFakeGenerator;
 
 class FakeGeneratorFactory
 {

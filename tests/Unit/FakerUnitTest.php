@@ -20,13 +20,6 @@ class FakerUnitTest extends TestCase
     {
         $dto = Faker::fake(TestBaseTypeDto::class);
 
-        self::assertNotEmpty($dto->getString());
-        self::assertNotEmpty($dto->getInt());
-        self::assertNotEmpty($dto->getFloat());
-        self::assertNotEmpty($dto->getArray());
-        self::assertNotEmpty($dto->isBool());
-        self::assertNotEmpty($dto->getDateTime());
-
         self::assertIsString($dto->getString());
         self::assertIsInt($dto->getInt());
         self::assertIsFloat($dto->getFloat());
