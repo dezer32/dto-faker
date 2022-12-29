@@ -6,7 +6,7 @@ namespace Dezer32\Libraries\Dto\Faker\Generators;
 
 interface FakeGeneratorInterface
 {
-    public function generate(...$args): mixed;
+    public function generate(): mixed;
 
     public static function isPossible(string $type): bool;
 }

@@ -17,11 +17,11 @@ class TypehintFakeGenerator extends AbstractFakeGenerator
         'DateTimeInterface' => FakerMethod::DATE_TIME,
     ];
 
-    public function generate(...$args): mixed
+    public function generate(): mixed
     {
         $method = self::RULES[$this->type];
 
-        return $this->getFaker()->{$method}(...$args);
+        return $this->getFaker()->{$method}();
     }
 
     public static function isPossible(

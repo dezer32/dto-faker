@@ -13,15 +13,16 @@ class FieldFaker extends AbstractFakeGenerator
     private array $args;
 
     public function __construct(
-        private string $method,
+        protected string $type,
         ...$args
     ) {
+        parent::__construct($this->type);
         $this->args = $args;
     }
 
-    public function generate(...$args): mixed
+    public function generate(): mixed
     {
-        return $this->getFaker()->{$this->method}(...$this->args);
+        return $this->getFaker()->{$this->type}(...$this->args);
     }
 
     public static function isPossible(string $type): bool

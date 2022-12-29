@@ -9,7 +9,6 @@ use Dezer32\Libraries\Dto\Faker\Faker;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestAttributedDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestBaseTypeDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestOptionalDto;
-use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestOptionDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestUpperInsteadDto;
 use PHPUnit\Framework\TestCase;
 

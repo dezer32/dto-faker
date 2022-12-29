@@ -9,7 +9,7 @@ use Dezer32\Libraries\Dto\Helpers\VerifyDto;
 
 class DateTransferObjectFakeGenerator extends AbstractFakeGenerator
 {
-    public function generate(...$args): mixed
+    public function generate(): mixed
     {
         return Faker::fake($this->type);
     }
