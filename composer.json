@@ -27,5 +27,8 @@
       "email": "my@ipro.dev"
     }
   ],
-  "minimum-stability": "stable"
+  "minimum-stability": "stable",
+  "extensions": [
+    "PhpBench\\Extensions\\XDebug\\XDebugExtension"
+  ]
 }

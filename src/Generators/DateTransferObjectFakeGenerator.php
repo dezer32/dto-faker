@@ -7,8 +7,13 @@ namespace Dezer32\Libraries\Dto\Faker\Generators;
 use Dezer32\Libraries\Dto\Faker\Faker;
 use Dezer32\Libraries\Dto\Helpers\VerifyDto;
 
-class DateTransferObjectFakeGenerator extends AbstractFakeGenerator
+class DateTransferObjectFakeGenerator implements FakeGeneratorInterface
 {
+    public function __construct(
+        protected string $type
+    ) {
+    }
+
     public function generate(): mixed
     {
         return Faker::fake($this->type);

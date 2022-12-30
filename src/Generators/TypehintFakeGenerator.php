@@ -4,12 +4,13 @@ declare(strict_types=1);
 
 namespace Dezer32\Libraries\Dto\Faker\Generators;
 
+use Dezer32\Libraries\Dto\Faker\Helpers\Faker;
 use Dezer32\Libraries\Dto\Faker\Helpers\FakerMethod;
 
-class TypehintFakeGenerator extends AbstractFakeGenerator
+class TypehintFakeGenerator implements FakeGeneratorInterface
 {
     private const RULES = [
-        'string' => FakerMethod::REAL_TEXT,
+        'string' => FakerMethod::WORD,
         'int' => FakerMethod::RANDOM_DIGIT_NOT_NULL,
         'float' => FakerMethod::RANDOM_FLOAT,
         'array' => FakerMethod::WORDS,
@@ -17,11 +18,16 @@ class TypehintFakeGenerator extends AbstractFakeGenerator
         'DateTimeInterface' => FakerMethod::DATE_TIME,
     ];
 
+    public function __construct(
+        protected string $type
+    ) {
+    }
+
     public function generate(): mixed
     {
         $method = self::RULES[$this->type];
 
-        return $this->getFaker()->{$method}();
+        return Faker::getFaker()->{$method}();
     }
 
     public static function isPossible(

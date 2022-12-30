@@ -5,10 +5,11 @@ declare(strict_types=1);
 namespace Dezer32\Libraries\Dto\Faker\Attributes;
 
 use Attribute;
-use Dezer32\Libraries\Dto\Faker\Generators\AbstractFakeGenerator;
+use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorInterface;
+use Dezer32\Libraries\Dto\Faker\Helpers\Faker;
 
 #[Attribute(Attribute::TARGET_PARAMETER | Attribute::TARGET_PROPERTY)]
-class FieldFaker extends AbstractFakeGenerator
+class FieldFaker implements FakeGeneratorInterface
 {
     private array $args;
 
@@ -16,13 +17,12 @@ class FieldFaker extends AbstractFakeGenerator
         protected string $type,
         ...$args
     ) {
-        parent::__construct($this->type);
         $this->args = $args;
     }
 
     public function generate(): mixed
     {
-        return $this->getFaker()->{$this->type}(...$this->args);
+        return Faker::getFaker()->{$this->type}(...$this->args);
     }
 
     public static function isPossible(string $type): bool

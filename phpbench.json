@@ -6,9 +6,6 @@
   "runner.iterations": 10,
   "runner.revs": 10000,
   "runner.retry_threshold": 5,
-  "runner.php_config": {
-    "xdebug.mode": "off"
-  },
   "report.outputs": {
     "csv": {
       "extends": "delimited",

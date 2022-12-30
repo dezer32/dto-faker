@@ -1,4 +1,5 @@
 /.idea
+/.phpbench
 /vendor
 /composer.lock
 /*.cache
