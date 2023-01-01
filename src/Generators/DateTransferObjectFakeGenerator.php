@@ -10,7 +10,7 @@ use Dezer32\Libraries\Dto\Helpers\VerifyDto;
 class DateTransferObjectFakeGenerator implements FakeGeneratorInterface
 {
     public function __construct(
-        protected string $type
+        private string $type
     ) {
     }
 

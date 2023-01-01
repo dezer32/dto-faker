@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dezer32\Libraries\Dto\Faker\Generators;
 
-use Dezer32\Libraries\Dto\Faker\Helpers\Faker;
+use Dezer32\Libraries\Dto\Faker\Helpers\Faker\Faker;
 use Dezer32\Libraries\Dto\Faker\Helpers\FakerMethod;
 
 class TypehintFakeGenerator implements FakeGeneratorInterface
@@ -19,7 +19,7 @@ class TypehintFakeGenerator implements FakeGeneratorInterface
     ];
 
     public function __construct(
-        protected string $type
+        private string $type
     ) {
     }
 

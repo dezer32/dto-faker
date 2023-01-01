@@ -9,6 +9,7 @@ use Dezer32\Libraries\Dto\Faker\Faker;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestAttributedDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestAttributedFakeCasterDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestBaseTypeDto;
+use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestEnumDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestOptionalDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestUpperInsteadDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestUuidDto;
@@ -70,5 +71,12 @@ class FakerUnitTest extends TestCase
         $dto = Faker::fake(TestAttributedFakeCasterDto::class);
 
         self::assertEquals('salt_test_string', $dto->getType()->getString());
+    }
+
+    public function testSuccessCanGenerateFakeEnum(): void
+    {
+        Faker::fake(TestEnumDto::class);
+
+        $this->expectNotToPerformAssertions();
     }
 }

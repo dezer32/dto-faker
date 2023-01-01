@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Dezer32\Libraries\Dto\Faker\Factories;
 
 use Dezer32\Libraries\Dto\Faker\Generators\DateTransferObjectFakeGenerator;
+use Dezer32\Libraries\Dto\Faker\Generators\EnumFakeGenerator;
 use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorInterface;
 use Dezer32\Libraries\Dto\Faker\Generators\TypehintFakeGenerator;
 use Dezer32\Libraries\Dto\Faker\Generators\UuidFakeGenerator;
@@ -14,6 +15,7 @@ class FakeGeneratorFactory
     private static array $generators = [
         TypehintFakeGenerator::class,
         UuidFakeGenerator::class,
+        EnumFakeGenerator::class,
         DateTransferObjectFakeGenerator::class,
     ];
 

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace Dezer32\Libraries\Dto\Faker\Helpers\Faker;
 
+use Dezer32\Libraries\Dto\Faker\Helpers\Faker\Providers\EnumProvider;
 use Dezer32\Libraries\Dto\Faker\Helpers\Faker\Providers\UuidProvider;
 use Faker\Factory;
 use Faker\Generator;
@@ -23,6 +24,7 @@ final class Faker
     {
         $faker = Factory::create($locale);
         $faker->addProvider(UuidProvider::class);
+        $faker->addProvider(EnumProvider::class);
 
         return $faker;
     }
