@@ -11,7 +11,9 @@ use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestAttributedFakeCasterDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestBaseTypeDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestOptionalDto;
 use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestUpperInsteadDto;
+use Dezer32\Libraries\Dto\Faker\Tests\Fixtures\Dto\TestUuidDto;
 use PHPUnit\Framework\TestCase;
+use Ramsey\Uuid\UuidInterface;
 
 use function PHPUnit\Framework\assertNotEmpty;
 
@@ -54,6 +56,13 @@ class FakerUnitTest extends TestCase
         $dto = Faker::fake(TestUpperInsteadDto::class);
 
         assertNotEmpty($dto->getDto()->getString());
+    }
+
+    public function testSuccessCanGenerateFakeUuid(): void
+    {
+        $dto = Faker::fake(TestUuidDto::class);
+
+        self::assertInstanceOf(UuidInterface::class, $dto->getUuid());
     }
 
     public function testSuccessCanGenerateFakeWithCaster(): void
