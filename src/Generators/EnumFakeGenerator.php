@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dezer32\Libraries\Dto\Faker\Generators;
 
-use Dezer32\Libraries\Dto\Faker\Helpers\Faker\Faker;
+use Dezer32\Libraries\Dto\Faker\Helpers\Faker\PhpFaker;
 use MyCLabs\Enum\Enum;
 
 /**
@@ -23,7 +23,7 @@ class EnumFakeGenerator implements FakeGeneratorInterface
      */
     public function generate(): Enum
     {
-        return Faker::getFaker()->randomEnum($this->type);
+        return PhpFaker::getFaker()->randomEnum($this->type);
     }
 
     public static function isPossible(string $type): bool

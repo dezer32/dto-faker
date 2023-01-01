@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Dezer32\Libraries\Dto\Faker\Generators;
 
-use Dezer32\Libraries\Dto\Faker\Helpers\Faker\Faker;
+use Dezer32\Libraries\Dto\Faker\Helpers\Faker\PhpFaker;
 use Dezer32\Libraries\Dto\Faker\Helpers\FakerMethod;
 
 class TypehintFakeGenerator implements FakeGeneratorInterface
@@ -27,7 +27,7 @@ class TypehintFakeGenerator implements FakeGeneratorInterface
     {
         $method = self::RULES[$this->type];
 
-        return Faker::getFaker()->{$method}();
+        return PhpFaker::getFaker()->{$method}();
     }
 
     public static function isPossible(

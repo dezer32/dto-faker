@@ -9,7 +9,7 @@ use Dezer32\Libraries\Dto\Faker\Helpers\Faker\Providers\UuidProvider;
 use Faker\Factory;
 use Faker\Generator;
 
-final class Faker
+final class PhpFaker
 {
     private const LOCALE = 'ru_RU';
 

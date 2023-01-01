@@ -6,7 +6,7 @@ namespace Dezer32\Libraries\Dto\Faker\Attributes;
 
 use Attribute;
 use Dezer32\Libraries\Dto\Faker\Generators\FakeGeneratorInterface;
-use Dezer32\Libraries\Dto\Faker\Helpers\Faker;
+use Dezer32\Libraries\Dto\Faker\Helpers\Faker\PhpFaker;
 
 #[Attribute(Attribute::TARGET_PARAMETER | Attribute::TARGET_PROPERTY)]
 class FieldFaker implements FakeGeneratorInterface
@@ -22,7 +22,7 @@ class FieldFaker implements FakeGeneratorInterface
 
     public function generate(): mixed
     {
-        return Faker::getFaker()->{$this->type}(...$this->args);
+        return PhpFaker::getFaker()->{$this->type}(...$this->args);
     }
 
     public static function isPossible(string $type): bool
