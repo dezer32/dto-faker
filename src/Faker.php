@@ -4,10 +4,24 @@ declare(strict_types=1);
 
 namespace Dezer32\Libraries\Dto\Faker;
 
-use Dezer32\Libraries\Dto\Faker\Reflections\FakingDtoClass;
+use Dezer32\Libraries\Dto\Faker\Reflections\FakeDtoClass;
+use Dezer32\Libraries\Dto\Faker\Reflections\Field;
 
+/**
+ * @template T as object
+ * @property class-string<T> $classname
+ */
 class Faker
 {
+    private FakeDtoClass $class;
+    private array|null $attributes = null;
+
+    private function __construct(
+        private string $className,
+    ) {
+        $this->class = new FakeDtoClass($this->className);
+    }
+
     /**
      * @template T as object
      *
@@ -15,15 +29,51 @@ class Faker
      *
      * @return T
      */
-    public static function fake(string $className): object
+    public static function fake(string $className, array|null $attributes = null): self
     {
-        $class = new FakingDtoClass($className);
+        return (new static($className))->with($attributes)->make();
+    }
 
+    public static function builder(string $className): self
+    {
+        return (new static($className));
+    }
+
+    public function with(array $attributes): self
+    {
+        $this->attributes = $attributes;
+
+        return $this;
+    }
+
+    /**
+     * @return T
+     */
+    public function make(): object
+    {
+        $array = $this->makeArray();
+
+        return $this->class->make($array);
+    }
+
+    public function makeArray(): array
+    {
         $array = [];
-        foreach ($class->getFakerFields() as $field) {
-            $array[$field->getName()] = $field->generate();
+
+        $fields = $this->class->getFakerFields();
+        foreach ($fields as $field) {
+            $array[$field->getName()] = $this->getValue($field);
         }
 
-        return $class->make($array);
+        return $array;
+    }
+
+    private function getValue(Field $field): mixed
+    {
+        if (isset($this->attributes[$field->getName()])) {
+            return $this->attributes[$field->getName()];
+        }
+
+        return $field->generate();
     }
 }

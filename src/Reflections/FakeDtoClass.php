@@ -6,7 +6,7 @@ namespace Dezer32\Libraries\Dto\Faker\Reflections;
 
 use Dezer32\Libraries\Dto\Reflections\DtoClass\DtoClass;
 
-class FakingDtoClass extends DtoClass
+class FakeDtoClass extends DtoClass
 {
     /** @var Field[] */
     private array $fields;

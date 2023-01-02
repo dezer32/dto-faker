@@ -79,4 +79,26 @@ class FakerUnitTest extends TestCase
 
         $this->expectNotToPerformAssertions();
     }
+
+    public function testAdditionalAttributes(): void
+    {
+        $string = 'additional_string';
+        $int = 1;
+        $dto = Faker::fake(TestAttributedDto::class, compact('string', 'int'));
+
+        self::assertEquals($string, $dto->getString());
+        self::assertEquals($int, $dto->getInt());
+    }
+
+    public function testBuilder(): void
+    {
+        $string = 'additional_string';
+        $int = 1;
+        $dto = Faker::builder(TestAttributedDto::class)
+            ->with(compact('string', 'int'))
+            ->make();
+
+        self::assertEquals($string, $dto->getString());
+        self::assertEquals($int, $dto->getInt());
+    }
 }
