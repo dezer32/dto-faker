@@ -14,14 +14,33 @@ composer require dezer32/dto-faker
 
 ### 2. Profit!
 
+### P.S.:
+
+If you used phpfaker/faker, then you can add provider:
+
+```php
+Dezer32\Libraries\Dto\Faker\Faker\FakerProvider::class
+```
+
+After useing:
+
+```php
+//for object:
+$faker->fakeDto(Class::class, ['additional' => 'parameter']);
+
+//only array:
+$faker->fakeDtoArray(Class::class, ['additional' => 'parameter']);
+```
+
 ## Usage
 
 ```php
 <?php
 
-use Dezer32\Libraries\Dto\Faker;
-
 $dto = Faker::fake(ClassNameDto::class);
+
+// if you need additional parameters:
+$dto = Faker::fake(ClassNameDto::class, ['additional' => 'parameters']);
 ```
 
 ## Customize
