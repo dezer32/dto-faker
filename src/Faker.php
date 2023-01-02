@@ -29,9 +29,14 @@ class Faker
      *
      * @return T
      */
-    public static function fake(string $className, array|null $attributes = null): self
+    public static function fake(string $className, array|null $attributes = null): object
     {
-        return (new static($className))->with($attributes)->make();
+        $faker = new static($className);
+        if ($attributes !== null) {
+            $faker->with($attributes);
+        }
+
+        return $faker->make();
     }
 
     public static function builder(string $className): self
